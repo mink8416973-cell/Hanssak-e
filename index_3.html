@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><title>HANSSAK-e</title>
+<style>
+body{margin:0;background:#1a1721;overscroll-behavior:none;overflow-x:hidden;}
+#wrapper{overflow:hidden;position:fixed;height:100%;width:100%;top:0;left:0;right:0;bottom:0;}
+#content{overflow:visible;width:100%;}
+.text{position:fixed;top:50vh;font-family:system-ui,sans-serif;font-weight:900;font-size:8vw;text-align:center;width:100%;transform:translateY(-100%);z-index:-2;color:#ffffff;-webkit-text-stroke:1.5px #ffffff;}
+.outline-text{color:transparent;z-index:2;}
+.filter-text{mix-blend-mode:screen;color:#804691;z-index:2;}
+.images{padding-top:60vh;position:relative;width:100%;max-width:1200px;margin:0 auto;min-height:150vh;height:100%;display:grid;grid-template-columns:repeat(20,2%);grid-template-rows:repeat(30,3%);justify-content:center;justify-items:center;align-items:center;z-index:1;}
+img{width:100%;height:100%;object-fit:cover;}
+</style></head><body>
+<h1 class="text">HANSSAK-e</h1>
+<h1 aria-hidden="true" class="text outline-text">HANSSAK-e</h1>
+<h1 aria-hidden="true" class="text filter-text">HANSSAK-e</h1>
+<div id="wrapper"><section id="content"><section class="images">
+      <img data-speed="0.8" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:1/1/6/8">
+      <img data-speed="0.9" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:3/12/8/20">
+      <img data-speed="1" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:9/5/13/15">
+      <img data-speed="1.1" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:14/1/18/8">
+      <img data-speed="0.9" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:16/12/20/19">
+      <img data-speed="1.2" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:20/2/25/9">
+      <img data-speed="0.8" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:29/14/25/20">
+      <img data-speed="1" src="KakaoTalk_20260701_153450927.png" alt="" style="grid-area:26/5/30/14">
+</section></section></div>
+<script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js?r=v3.12.0"></script>
+<script src="https://assets.codepen.io/16327/ScrollTrigger.min.js?r=v3.12.0"></script>
+<script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+<script>
+let sk=gsap.quickTo("img","skewY"),cl=gsap.utils.clamp(-20,20);
+ScrollSmoother.create({wrapper:"#wrapper",content:"#content",smooth:2,speed:3,effects:true,onUpdate:s=>sk(cl(s.getVelocity()/-50)),onStop:()=>sk(0)});
+</script></body></html>
